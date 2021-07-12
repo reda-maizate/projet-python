@@ -1,40 +1,55 @@
 from game.game_settings import Dice
-from characters.monster import Monster
+from characters.character import Character
 
 
-class Hero:
+class Hero(Character):
     def __init__(self, name):
         self.name = name
-        self.health = 100
-        self.maxHealth = 100
-        self.attackRoll = 3 * Dice().value
-        self.defense = 5 * Dice().value
         self.weapon = None
         self.gold = 0
         self.pride = 0
+        self.force = Dice(30).get_value()
+        self.dodge = Dice(15).get_value()
+        self.health = 100
+        self.maxHealth = 100
+        super().__init__(self.name, self.maxHealth, self.force, self.gold)
 
     def attack(self):
         if self.weapon:
-            return self.attackRoll + self.weapon.power
+            return self.force + self.weapon.force
         else:
-            return self.attackRoll
+            return self.force
 
+    """
     def fight(self, monster):
-        attack = self.attackRoll
-        defense = Monster.defense
+        attackRoll = Dice().get_value()
+        defenseRoll = Dice().get_value()
 
-        if not self.weapon:
-            if defense > attack:
-                print(f"Haaan tu viens de te manger une esquive tah Gogeta!!\n")
+        #if dodgeRoll > 2:
+        #    ...
 
-            elif attack == defense:
-                print(f"Coup égalité mgl, c'est une dinguerie on dirait un shonen\n")
-            else:
-                print(f"Ta mis une de ses bastos au {monster.name}, mashallah la puissance!\n")
+        #if not self.weapon:
+        if defenseRoll > attackRoll:
+            print(f"Haaan tu viens de te manger une esquive tah Gogeta!!\n")
+
+        elif attackRoll == defenseRoll:
+            print(f"Coup égalité mgl, c'est une dinguerie on dirait un shonen\n")
+            monster.health -= self.force / 2
+            self.health -= monster.force / 2
         else:
-            if defense > attack:
-                print(f"T'as sorti le glock il t'a esquiver comme les baqueux!\n")
-            elif attack == defense:
-                print(f"Ta pas honte, tu sors le glock et vous avez tapé avec la même force, ai honte zebi!\n")
-            else:
-                print(f"Ta tirer sur {monster.name}, il t'as même pas dit choucrane\n")
+            print(f"Ta mis une de ses bastos au {monster.name}, mashallah la puissance!\n")
+            monster.health -= self.force
+        #else:
+        #    if defenseRoll > attackRoll:
+        #        print(f"T'as sorti le glock il t'a esquiver comme les baqueux!\n")
+        #    elif attackRoll == defenseRoll:
+        #        print(f"Ta pas honte, tu sors le glock et vous avez tapé avec la même force, ai honte zebi!\n")
+        #        monster.health -= self.force / 2
+        #        self.health -= monster.force / 2
+        #    else:
+        #        print(f"Ta sorti la AK, {monster.name} a fait caca!\n")
+        #        monster.health -= self.force
+        """
+
+    def sleep(self):
+        self.health = self.maxHealth
