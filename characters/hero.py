@@ -52,6 +52,7 @@ class Hero(Character):
         """
 
     def sleep(self):
+        print("Un bon gros dodo wallah")
         self.health = self.maxHealth
 
     def isDead(self):

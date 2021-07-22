@@ -55,7 +55,7 @@ class Game:
             # elif cmd.lower() == 'leave':
             #     break
         scoreManager(self.hero)
-        print("end Game , score : ", 809230, "pts")
+        print("Fin de la partie , score : ", self.hero.score , " pts")
 
     def combat(self):
         for monster in self.room.monsters:
