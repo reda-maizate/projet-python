@@ -73,11 +73,18 @@ def loop(game=None):
         yield room
 
 
+def nothing():
+    print("test")
+
+
 class Dungeon(Room):
     def __init__(self, hero: Hero):
-        super().__init__(hero)
-        self.exits = [Exits.NEXT_ROOM]
+        commands = {"what": nothing}  # todo generate commands
+
+        exits = [Exits.NEXT_ROOM]
 
         can_tp_home = random.random() >= 0.5
         if can_tp_home:
-            self.exits.append(Exits.HOME)
+            exits.append(Exits.HOME)
+
+        super().__init__("Cave", "Antre sombre et menaçante", commands, exits, [], hero)

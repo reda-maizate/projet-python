@@ -13,6 +13,8 @@ class Shop(Room):
         }
         super().__init__("Boutique", "Faites vos achats et déposez de l'argent", exits=[Exits.HOME, Exits.NEXT_ROOM],
                          commands=commands,hero=hero)
+        # print("une bombe sous vos pieds explose, vous mourrez")
+        # hero.health = 0
 
     def deposit(self):
         ...

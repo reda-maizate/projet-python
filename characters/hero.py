@@ -4,6 +4,7 @@ from characters.character import Character
 
 class Hero(Character):
     def __init__(self, name):
+        self.score = 0
         self.weapon = None
         self.pride = 0
         self.dodge = Dice(15).get_value()

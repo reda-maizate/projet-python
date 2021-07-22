@@ -1,7 +1,7 @@
 from characters.hero import Hero
 from dungeon.rooms.home import Home
 from game.game_settings import Dice
-from dungeon.rooms.utils import whichRoom
+from utils import whichRoom, scoreManager
 
 
 class Game:
@@ -54,6 +54,7 @@ class Game:
             #         print("Aucun monstre dans la salle mon reuf!")
             # elif cmd.lower() == 'leave':
             #     break
+        scoreManager(self.hero)
         print("end Game , score : ", 809230, "pts")
 
     def combat(self):
