@@ -4,15 +4,14 @@ from characters.character import Character
 
 class Hero(Character):
     def __init__(self, name):
-        self.name = name
         self.weapon = None
-        self.gold = 0
         self.pride = 0
-        self.force = Dice(30).get_value()
         self.dodge = Dice(15).get_value()
-        self.health = 100
-        self.maxHealth = 100
-        super().__init__(self.name, self.maxHealth, self.force, self.gold)
+        name = name
+        gold = 0
+        force = Dice(30).get_value()
+        maxHealth = 100
+        super().__init__(name, maxHealth, force, gold)
 
     def attack(self):
         if self.weapon:
@@ -53,3 +52,9 @@ class Hero(Character):
 
     def sleep(self):
         self.health = self.maxHealth
+
+    def isDead(self):
+        if self.health <= 0:
+            print("T'ES MOOOOOOOORTTT ! GAME OVER BATARD MTN VA TRAVAILLER!")
+            return True
+        return False
