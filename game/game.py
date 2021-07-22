@@ -36,10 +36,6 @@ class Game:
             self.room.use()
             self.next_room()
 
-            # cmd = input("{0} ~ P.V:{1}/{2} Att:{3} Dod:{4} Or:{05}>>> ".format(self.hero.name, self.hero.health,
-            #                                                                    self.hero.maxHealth, self.hero.force,
-            #                                                                    self.hero.dodge,
-            #                                                                    self.hero.gold)).strip()
             #
             # if cmd.lower() == "quitter":
             #     self.exit = True
