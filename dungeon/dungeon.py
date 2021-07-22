@@ -75,8 +75,7 @@ def loop(game=None):
 
 class Dungeon(Room):
     def __init__(self, hero: Hero):
-        super().__init__()
-        self.hero = hero
+        super().__init__(hero)
         self.exits = [Exits.NEXT_ROOM]
 
         can_tp_home = random.random() >= 0.5
