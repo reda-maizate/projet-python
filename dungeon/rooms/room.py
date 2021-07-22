@@ -14,4 +14,14 @@ class Room:
         self.commands = commands
 
     def __str__(self):
-        return self.name + " " + self.description
+        return self.__class__.__name__ + "\n" + self.name + " \n" + self.description + " "
+
+    def choices(self):
+        return ["%s : %s\n" % (index, door.name) for index, door in enumerate(self.exits)]
+
+    def use(self):
+        print(self.commands)
+        print("Il n'y a rien à faire ici en fait")
+
+    def next(self):
+        pass

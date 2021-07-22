@@ -1,4 +1,8 @@
+import random
+
+from characters.hero import Hero
 from characters.monster import Monster
+from dungeon.exits import Exits
 from game.game_settings import Dice
 from dungeon.rooms.room import *
 
@@ -54,27 +58,27 @@ def loop(game=None):
                          }
 
         numMonster = Dice(3).get_value()
-        if numMonster == 0:
-            pass
-        elif numMonster == 1:
-            room.monsters.append(Monster())
-        elif numMonster == 2:
-            room.monsters.append(Monster())
-        else:
-            room.monsters.append(Monster())
+        # if numMonster == 0:
+        #     pass
+        # elif numMonster == 1:
+        #     room.monsters.append(Monster())
+        # elif numMonster == 2:
+        #     room.monsters.append(Monster())
+        # else:
+        #     room.monsters.append(Monster())
+        #     room.monsters.append(Monster())
+        for _ in range(numMonster):
             room.monsters.append(Monster())
 
         yield room
 
 
-class Dungeon:
-    pass
+class Dungeon(Room):
+    def __init__(self, hero: Hero):
+        super().__init__()
+        self.hero = hero
+        self.exits = [Exits.NEXT_ROOM]
 
-
-    # new room
-    # put monster in room
-    # fight
-
-    # result du fight
-    # rewards de la room
-    # retour casa  / go deeper run()
+        can_tp_home = random.random() >= 0.5
+        if can_tp_home:
+            self.exits.append(Exits.HOME)

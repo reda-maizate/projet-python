@@ -1,19 +1,16 @@
 from enum import Enum
 
-from dungeon.rooms.home import Home
-from dungeon.rooms.shop import Shop
-
 
 class Exits(Enum):
     HOME = {
-        "index": 1,
-        "goto": Home,
+        "text": "Retour au tieks",
+        "index": 1
     }
     SHOP = {
-        "index": 2,
-        "goto": Shop,
+        "text": "Go à l'usine",
+        "index": 2
     }
     NEXT_ROOM = {
-        "index": 1,
-        "goto": Home,
+        "text": "Plus loiiiiiiin",
+        "index": 3
     }
