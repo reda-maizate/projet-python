@@ -1,0 +1,23 @@
+{
+  "dungeon_crawler": {
+    "classes" : {
+      "game" : {
+        "init": {
+          "prompt" : ""
+        },
+        "next_room" : {
+          "welcome" : "",
+          "ask" : "",
+          "incorrect_number" : "",
+          "incorrect_answer" : ""
+        },
+        "run" : {
+          "end_game" : ""
+        },
+        "display" : {
+          "room_content" : ""
+        }
+      }
+    }
+  }
+}

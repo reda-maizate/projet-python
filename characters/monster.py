@@ -25,19 +25,4 @@ class Monster(Character):
 
         super().__init__(self.name, self.maxHealth, self.force, self.gold)
 
-    """
-    def fight(self, hero):
-        attackRoll = Dice().get_value()
-        defenseRoll = Dice().get_value()
 
-        if defenseRoll > attackRoll:
-            print(f"Haaan tu viens de te manger une esquive tah Gogeta!!\n")
-
-        elif attackRoll == defenseRoll:
-            print(f"Coup égalité mgl, c'est une dinguerie on dirait un shonen\n")
-            hero.health -= self.force / 2
-            self.health -= hero.force / 2
-        else:
-            print(f"Ta mis une de ses bastos au {hero.name}, mashallah la puissance!\n")
-            hero.health -= self.force
-    """

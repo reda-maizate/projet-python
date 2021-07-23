@@ -18,23 +18,24 @@ class Room:
         self.hero = hero
 
     def __str__(self):
-        return "Ta position : " +  self.name + " \n" + self.description + " "
+        return "Ta position : " + self.name + " \n" + self.description + " "
 
     def choices(self):
         return ["%s : %s\n" % (index, door.name) for index, door in enumerate(self.exits)]
 
     def use(self):
 
-        print("Actions disponibles:")
-        for cmd in self.commands:
-            print("\t-", cmd)
+        interact_with_room = True
+        while interact_with_room:
+            print("Actions disponibles:")
+            for cmd in self.commands:
+                print("\t-", cmd)
+            print("\t-", "sortir")
 
-        cmd = input("{0} ~ P.V:{1}/{2} Att:{3} Dod:{4} Or:{05}>>> ".format(
-            self.hero.name, self.hero.health,
-            self.hero.maxHealth, self.hero.force,
-            self.hero.dodge,
-            self.hero.gold)
-        ).strip()
+            cmd = input(self.hero).strip().lower()
 
-        if cmd in self.commands:
-            self.commands[cmd]()
+            if cmd in self.commands:
+                self.commands[cmd]()
+
+            if cmd == "sortir":
+                interact_with_room = False

@@ -1,0 +1,24 @@
+{
+  "dungeon_crawler": {
+    "classes" : {
+      "game" : {
+        "init": {
+          "prompt" : "Quel est ton nom, jeune pucelle ?"
+        },
+        "next_room" : {
+          "welcome" : "Qu'est-ce-qu'on fait maintenant chef",
+          "ask" : "Tu veux continuer ton périple ? [y]/n",
+          "incorrect_number" : "Jconnais pas l'option '%d'",
+          "incorrect_answer" : "Pourquoi tu m'embrouilles"
+        },
+        "run" : {
+          "end_game" : "Fin de la partie , score : %d pts"
+        },
+        "display" : {
+          "room_content" : "Monstre(s) présent(s): %s"
+        }
+      }
+    }
+  }
+}
+

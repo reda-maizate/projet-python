@@ -1,8 +1,12 @@
+import json
+
 from characters.hero import Hero
 from dungeon.dungeon import Dungeon
 from dungeon.exits import Exits
 from dungeon.rooms.home import Home
 from dungeon.rooms.shop import Shop
+
+dialogs = {}
 
 
 def whichRoom(game, user_choice):
@@ -33,3 +37,15 @@ def scoreManager(hero: Hero):
         for index, player in enumerate(scores_names):
             if index < 3:
                 f.write(" ".join([str(scores_names[player]), "--", player, "\n"]))
+
+
+def displayBestPlayers():
+    with open("extraData/scores.txt", "r+") as f:
+        best = f.readlines()
+        print("\n".join(best))
+
+
+def loadDialogs():
+    global dialogs
+    with open("extraData/dialogs/fr_FR.json", "r", encoding="utf-8") as f:
+        dialogs = json.load(f)
