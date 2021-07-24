@@ -15,7 +15,7 @@ class Monster(Character):
             self.gold = Dice(10).get_value() + 20
             self.force = Dice(25).get_value()
         elif 40 > health > 25:
-            self.name = "Monstre"
+            self.name = "Monstre Classique"
             self.gold = Dice(10).get_value() + 10
             self.force = Dice(25).get_value()
         else:

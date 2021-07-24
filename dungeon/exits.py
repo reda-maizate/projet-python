@@ -11,6 +11,6 @@ class Exits(Enum):
         "index": 2
     }
     NEXT_ROOM = {
-        "text": "Plus loiiiiiiin",
+        "text": "Plus loiiiiiiin dans le donjon",
         "index": 3
     }

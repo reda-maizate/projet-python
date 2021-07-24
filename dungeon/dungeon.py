@@ -26,26 +26,34 @@ class Dungeon(Room):
         self.fillMonsters()
 
     def use(self):
+        rounds = 0
         while self.monsters:
+            rounds += 1
             monsters_quantity = len(self.monsters)
             print("%d Monstre(s) présent(s): %s" % (
                 monsters_quantity,
                 ", ".join([d.name for d in self.monsters])
             ))
+            if rounds == 1:
+                text = "\nLe combat commence"
+            else:
+                text = "\nLe combat continue"
 
-            print("\nLe combat commence, tu préfères : \n\t-attaquer\n\t-defendre")
+            print(text , "tu préfères : \n\t-attaquer\n\t-defendre")
             attack_or_defense = input(self.hero)
 
-            tmp_attack = self.hero.attack
+            tmp_force = self.hero.force
             tmp_def = self.hero.armor
 
             if attack_or_defense == "defense":
-                self.hero.attack = 0
+                self.hero.force = 0
                 self.hero.armor = 80
             self.combat()
 
-            self.hero.attack = tmp_attack
+            self.hero.force = tmp_force
             self.hero.armor = tmp_def
+
+            print()
 
 
         print("Aucun monstre dans la salle mon reuf!")

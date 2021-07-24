@@ -7,17 +7,11 @@ class Hero(Character):
         self.score = 0
         self.weapon = None
         self.pride = 0
-        self.armor = 0
-        gold = 60000
-        force = Dice(30).get_value()
+        gold = 80
+        force = 10 + Dice(30).get_value()
         maxHealth = 100
-        super().__init__(name, maxHealth, force, gold)
-
-    def attack(self):
-        if self.weapon:
-            return self.force + self.weapon.force
-        else:
-            return self.force
+        armor = 15
+        super().__init__(name, maxHealth, force, gold , armor)
 
     def sleep(self):
         print("Un bon gros dodo wallah")

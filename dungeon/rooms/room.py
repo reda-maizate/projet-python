@@ -21,7 +21,7 @@ class Room:
         return "Ta position : " + self.name + " \n" + self.description + " "
 
     def choices(self):
-        return ["%s : %s\n" % (index, door.name) for index, door in enumerate(self.exits)]
+        return ["%s : %s\n" % (index, door.value['text']) for index, door in enumerate(self.exits)]
 
     def use(self):
 
