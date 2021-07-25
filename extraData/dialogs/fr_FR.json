@@ -11,7 +11,7 @@
           "incorrect_number" : "J'connais pas l'option '%d'",
           "incorrect_answer" : "Pourquoi tu m'embrouilles ? Fais belek j'suis pas ton pote!",
           "no_monster" : "Aucun monstre dans la salle mon reuf!\nCa sert à rien de taper dans le vide y'a pas de Jnoûn",
-          "name" : "Bah les blocks"
+          "name" : "Bas des blocks"
         },
         "run" : {
           "end_game" : "Fin de la partie , score : %d pts"
@@ -20,7 +20,7 @@
           "room_content" : "%d Monstre(s) présent(s): %s"
         },
         "combat" : {
-          "monster_dead": "La calotte de ces mort est dead ! Un de moins ;)"
+          "monster_dead": "La calotte de ses morts est dead ! Un de moins ;)"
         },
         "exit": {
           "home": "Retour au tieks",
@@ -29,8 +29,8 @@
         },
         "character": {
           "defense_sup_attaque" : "Haaan %s vient de se manger une esquive tah Gogeta par %s!!\n %s ne prend pas de dégats",
-          "defense_equal_attaque" : "%s et %s sont surpuissants on peut pas les départager,\n on dirait un shonen\n",
-          "defense_inf_attaque" : "%s met une de ces bastos à %s, mashallah la puissance!\n",
+          "defense_equal_attaque" : "%s et %s sont surpuissants on peut pas les départager,\n on dirait un shonen",
+          "defense_inf_attaque" : "%s met une de ces bastos à %s, mashallah la puissance!",
           "lose_hp" : "%s perd %d points de vie"
         },
         "hero" : {
@@ -46,11 +46,11 @@
           "sortie" : "Il y a une porte au fond de la salle"
         },
         "round" : {
-          "start" : "prepare toi petit pucelle ça va saigner",
+          "start" : "Prépare toi petite pucelle ça va saigner",
           "continue" : "Prêt pour un autre round ? non c'était pas une question !",
-          "ask_action" : "Qu'est ce que t'attend choisi ton mouvement j'ai pas toute la journée :",
-          "attaquer" : "Attaquer ? c'était bien la peine de me faire attendre pour ça",
-          "defendre" : "Défendre ? Alors on a peur ? héhéhé..."
+          "ask_action" : "Qu'est ce que t'attends choisi ton mouvement j'ai pas toute la journée :",
+          "attaquer" : "Attaquer ? c'était bien la peine de me faire attendre pour ça (attaquer)",
+          "defendre" : "Défendre ? Alors on a peur ? héhéhé... (defendre)"
         },
         "shop" : {
           "arme": "faire plus mal",
@@ -62,6 +62,22 @@
           "armure_lvl_up" : "level up de l'armure",
           "arme_lvl_up" : "level up de l'épée\nAttention la patate du Sheitan"
         }
+      },
+      "home" : {
+        "default_name" : "Maison",
+        "default_desc" : "Assieds-toi mon reuf, prends un verre",
+        "commands" : [ "dormir" ]
+      },
+      "room" : {
+        "hero_nonexistant" : "Vous devez exister pour rentrer dans cette salle",
+        "to_string" : "Ta position : ",
+        "commands" : "Actions disponibles:",
+        "out" : "sortir"
+      },
+      "monster" : {
+        "small" : "Petit Monstre",
+        "classic" : "Monstre Classique" ,
+        "big" : "Grand Monstre"
       }
     }
   }

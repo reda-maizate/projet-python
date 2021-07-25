@@ -42,7 +42,8 @@
           "cannot_use_power" : ""
         },
         "dungeon" : {
-          "description" : ""
+          "description" : "",
+          "sortie" : ""
         },
         "round" : {
           "start" : "",
@@ -50,7 +51,33 @@
           "ask_action" : "",
           "attaquer" : "",
           "defendre" : ""
+        },
+        "shop" : {
+          "arme": "",
+          "armure": "",
+          "name": "",
+          "description": "",
+          "no_monnaie": "",
+          "stat_already_maxed": "",
+          "armure_lvl_up" : "",
+          "arme_lvl_up" : ""
         }
+      },
+      "home" : {
+        "default_name" : "",
+        "default_desc" : "",
+        "commands" : [ "" ]
+      },
+      "room" : {
+        "hero_nonexistant" : "",
+        "to_string" : "",
+        "commands" : "",
+        "out" : ""
+      },
+      "monster" : {
+        "small" : "",
+        "classic" : "" ,
+        "big" : ""
       }
     }
   }

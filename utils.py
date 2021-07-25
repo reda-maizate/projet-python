@@ -1,4 +1,3 @@
-import json
 import os
 
 from characters.hero import Hero
@@ -18,8 +17,9 @@ def whichRoom(game, user_choice):
     elif enumRoom == Exits.SHOP:
         return Shop(hero=game.hero)
 
+
 def scoreManager(hero: Hero):
-    with open("extraData/scores.txt", "r+") as f:
+    with open("extraData/scores.txt", "r+", encoding="utf-8") as f:
         file_text = f.readlines()
         scores_names = dict(map(lambda line: (line.split(" -- ")[1].strip(), int(line.split(" -- ")[0])), file_text))
 
@@ -36,7 +36,7 @@ def scoreManager(hero: Hero):
 
 
 def displayBestPlayers():
-    with open("extraData/scores.txt", "r+") as f:
+    with open("extraData/scores.txt", "r+", encoding="utf-8") as f:
         best = f.readlines()
         print("\n".join(best))
 

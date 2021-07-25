@@ -1,14 +1,14 @@
 import random
 from time import sleep
 
+import Language
 from characters.hero import Hero
 from characters.monster import Monster
 from dungeon.exits import Exits
-from game.Dice import Dice
 from dungeon.rooms.room import *
+from game.Dice import Dice
 
-import utils
-import Language
+page_dialog = Language.dialogs["dungeon_crawler"]["classes"]["game"]
 
 
 def init_power():
@@ -22,10 +22,10 @@ def init_power():
 @init_power()
 def use_power():
     use_power.used += 1
-    if use_power.used > 1:
-        print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["cannot_use_power"])
-    else:
-        print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["use_power"])
+    # if use_power.used > 1:
+    #     print(page_dialog["power"]["cannot_use_power"])
+    # else:
+    #     print(page_dialog["power"]["use_power"])
 
 
 class Dungeon(Room):
@@ -37,9 +37,9 @@ class Dungeon(Room):
         can_tp_home = random.random() <= 1 / 5
         if can_tp_home:
             exits.append(Exits.HOME)
-            exitDescription = Language.dialogs["dungeon_crawler"]["classes"]["game"]["dungeon"]["sortie"]
-        exitDescription = Language.dialogs["dungeon_crawler"]["classes"]["game"]["dungeon"]["description"] + exitDescription
-        room_name = Language.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["name"]
+            exitDescription = page_dialog["dungeon"]["sortie"]
+        exitDescription = page_dialog["dungeon"]["description"] + exitDescription
+        room_name = page_dialog["next_room"]["name"]
         super().__init__(room_name, exitDescription, commands, exits, [], hero)
         self.fillMonsters()
 
@@ -48,24 +48,24 @@ class Dungeon(Room):
         while self.monsters:
             rounds += 1
             monsters_quantity = len(self.monsters)
-            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["display"]["room_content"] % (
+            print(page_dialog["display"]["room_content"] % (
                 monsters_quantity,
-                ", ".join([d.name for d in self.monsters])
+                ", ".join([d.name + "(%d/%d)" % (d.health, d.maxHealth) for d in self.monsters])
             ))
             if rounds == 1:
-                text = Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["start"]
+                text = page_dialog["round"]["start"]
             else:
-                text = Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["continue"]
+                text = page_dialog["round"]["continue"]
 
             print("\n" + text)
-            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["ask_action"])
+            print(page_dialog["round"]["ask_action"])
             for cmd in self.commands:
                 print("\t-", cmd)
-            print("\t- "+Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["attaquer"])
-            print("\t- "+Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["defendre"])
+            print("\t- " + page_dialog["round"]["attaquer"])
+            print("\t- " + page_dialog["round"]["defendre"])
 
             attack_or_defense = input(self.hero)
-
+            print()
             tmp_force = self.hero.force
             tmp_def = self.hero.armor
 
@@ -80,7 +80,7 @@ class Dungeon(Room):
 
             print()
 
-        print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["no_monster"])
+        print(page_dialog["next_room"]["no_monster"])
 
     def combat(self, humansFights=True):
         monstersRemaining = []
@@ -98,7 +98,7 @@ class Dungeon(Room):
             if monster.health <= 0:
                 self.hero.gold += monster.gold
                 self.hero.score += monster.maxHealth
-                print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["combat"]["monster_dead"])
+                print(page_dialog["combat"]["monster_dead"])
             elif self.hero.health <= 0:
                 break
             else:
