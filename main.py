@@ -1,8 +1,8 @@
 import Language
-from utils import menu
+from menu import menu
 user_choice = menu()
+Language.loadDialogs(user_choice)
 from game.game import Game
 
 if __name__ == "__main__":
-    Language.loadDialogs()
     Game().run()

@@ -1,25 +1,25 @@
 {
   "dungeon_crawler": {
-    "classes" : {
-      "game" : {
+    "classes": {
+      "game": {
         "init": {
-          "prompt" : "Bonjour Jeune aventurier, comment vous nommez-vous ? "
+          "prompt": "Bonjour Jeune aventurier, comment vous nommez-vous ? "
         },
-        "next_room" : {
-          "welcome" : "Que fait-on désormais ?",
-          "ask" : "Souhaitez-vous continuer votre périple ? [y]/n",
-          "incorrect_number" : "Je ne connais guerre l'option '%d', veuillez réessayer s'il vous plaît.",
-          "incorrect_answer" : "Pourquoi es-tu méchant avec moi ?",
-          "no_monster" : "Aucun monstre dans la salle !",
-          "name" : "Salle sombre"
+        "next_room": {
+          "welcome": "Que fait-on désormais ?",
+          "ask": "Souhaitez-vous continuer votre périple ? [y]/n",
+          "incorrect_number": "Je ne connais guerre l'option '%d', veuillez réessayer s'il vous plaît.",
+          "incorrect_answer": "Pourquoi es-tu méchant avec moi ?",
+          "no_monster": "Aucun monstre dans la salle !",
+          "name": "Salle sombre"
         },
-        "run" : {
-          "end_game" : "La parti est terminé, voici votre score : %d pts"
+        "run": {
+          "end_game": "La parti est terminé, voici votre score : %d pts"
         },
-        "display" : {
-          "room_content" : "Il ya %d monstre(s) présent(s): %s"
+        "display": {
+          "room_content": "Il ya %d monstre(s) présent(s): %s"
         },
-        "combat" : {
+        "combat": {
           "monster_dead": "Un monstre est mort!"
         },
         "exit": {
@@ -28,40 +28,58 @@
           "next_room": "Salle suivante"
         },
         "character": {
-          "defense_sup_attaque" : "l'attaque de %s est ignorée par %s!!\n%s aucun domage",
-          "defense_equal_attaque" : "%s et %s sont de puissance égale\naucun domage\n",
-          "defense_inf_attaque" : "%s inflige des dommages à %s\n",
-          "lose_hp" : "%s perd %d points de vie"
+          "defense_sup_attaque": "l'attaque de %s est ignorée par %s!!\n%s aucun domage",
+          "defense_equal_attaque": "%s et %s sont de puissance égale\naucun domage\n",
+          "defense_inf_attaque": "%s inflige des dommages à %s\n",
+          "lose_hp": "%s perd %d points de vie"
         },
-        "hero" : {
-          "sleep" : "ZzZ Bonne nuit ZzZ",
-          "death" : "GAME OVER"
+        "hero": {
+          "sleep": "ZzZ Bonne nuit ZzZ",
+          "death": "GAME OVER"
         },
-        "power" : {
-          "use_power" : "puissance utilisée",
-          "cannot_use_power" : "puissance indisponible"
+        "power": {
+          "use_power": "puissance utilisée",
+          "cannot_use_power": "puissance indisponible"
         },
-        "dungeon" : {
-          "description" : "Antre sombre et menaçante\n",
+        "dungeon": {
+          "description": "Antre sombre et menaçante\n",
           "sortie": "Il y a une porte au fond de la salle"
         },
-        "round" : {
-          "start" : "Le combat commence",
-          "continue" : "Le combat continue",
-          "ask_action" : "Actions disponibles:",
-          "attaquer" : "attaquer",
-          "defendre" : "defendre"
+        "round": {
+          "start": "Le combat commence",
+          "continue": "Le combat continue",
+          "ask_action": "Actions disponibles:",
+          "attaquer": "attaquer",
+          "defendre": "defendre"
         },
-        "shop" : {
+        "shop": {
           "arme": "Améliorer votre épée",
           "armure": "Améliorer votre armure",
           "name": "Boutique",
           "description": "Faites vos achats et déposez de l'argent",
           "no_monnaie": "Diantre ! Vous ne possédez plus un sous !! ",
           "stat_already_maxed": "Impossible d'améliorer, vous êtes déjà au max !",
-          "armure_lvl_up" : "Vous avez obtenu un +10 en Armure !",
-          "arme_lvl_up" : "Vous avez obtenu un +10 en Force !"
+          "armure_lvl_up": "Vous avez obtenu un +10 en Armure !",
+          "arme_lvl_up": "Vous avez obtenu un +10 en Force !"
         }
+      },
+      "home": {
+        "default_name": "Maison",
+        "default_desc": "Assieds-toi mon reuf, prends un verre",
+        "commands": [
+          "dormir"
+        ]
+      },
+      "room": {
+        "hero_nonexistant": "Vous devez exister pour rentrer dans cette salle",
+        "to_string": "Ta position : ",
+        "commands": "Actions disponibles:",
+        "out": "sortir"
+      },
+      "monster": {
+        "small": "Petit Monstre",
+        "classic": "Monstre Classique",
+        "big": "Grand Monstre"
       }
     }
   }
