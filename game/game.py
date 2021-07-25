@@ -1,4 +1,3 @@
-from utils import *
 import utils
 
 
@@ -10,8 +9,8 @@ class Game:
         self.exit = False
 
     def next_room(self):
-        print("Qu'est-ce-qu'on fait maintenant chef")
-        question = "Tu veux continuer ton périple ? [y]/n"
+        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["welcome"])
+        question = utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["ask"]
         self.exit = input(question) not in ["y", ""]
 
         if not self.exit:
@@ -21,10 +20,10 @@ class Game:
                     user_choice = int(input("".join(choices)))
                     if user_choice < len(self.room.exits):
                         break
-                    print("Jconnais pas l'option '%d'" % user_choice)
+                    print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["incorrect_number"] % user_choice)
 
                 except ValueError:
-                    print("Pourquoi tu m'embrouilles")
+                    print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["incorrect_answer"])
 
             self.room = whichRoom(self, user_choice)
 
@@ -37,5 +36,5 @@ class Game:
             self.next_room()
 
         scoreManager(self.hero)
-        print("Fin de la partie , score : %d pts" % self.hero.score)
+        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["run"]["end_game"] % self.hero.score)
         displayBestPlayers()

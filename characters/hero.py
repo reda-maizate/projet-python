@@ -10,6 +10,7 @@ class Hero(Character):
         gold = 80
         force = 10 + Dice(30).get_value()
         maxHealth = 100
+        self.health = maxHealth
         armor = 15
         super().__init__(name, maxHealth, force, gold , armor)
 

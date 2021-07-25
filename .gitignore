@@ -1,3 +1,4 @@
 .idea
 *__pycache__*
+dungeon/rooms/__*
 *.pyc

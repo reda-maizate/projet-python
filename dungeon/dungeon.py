@@ -7,6 +7,8 @@ from dungeon.exits import Exits
 from game.Dice import Dice
 from dungeon.rooms.room import *
 
+import utils
+
 
 def init_power():
     def power_(func):
@@ -44,7 +46,7 @@ class Dungeon(Room):
         while self.monsters:
             rounds += 1
             monsters_quantity = len(self.monsters)
-            print("%d Monstre(s) présent(s): %s" % (
+            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["display"]["room_content"] % (
                 monsters_quantity,
                 ", ".join([d.name for d in self.monsters])
             ))
@@ -96,6 +98,8 @@ class Dungeon(Room):
                 self.hero.gold += monster.gold
                 self.hero.score += monster.maxHealth
                 print("Le monstre est mort !!!!!!!!!")
+            elif self.hero.health <= 0:
+                break
             else:
                 monstersRemaining.append(monster)
             sleep(2)

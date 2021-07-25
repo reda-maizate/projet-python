@@ -15,7 +15,7 @@
           "end_game" : "Fin de la partie , score : %d pts"
         },
         "display" : {
-          "room_content" : "Monstre(s) présent(s): %s"
+          "room_content" : "%d Monstre(s) présent(s): %s"
         }
       }
     }
