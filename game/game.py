@@ -1,4 +1,6 @@
 import utils
+from characters.hero import Hero
+from dungeon.rooms.home import Home
 
 
 class Game:
@@ -25,7 +27,7 @@ class Game:
                 except ValueError:
                     print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["incorrect_answer"])
 
-            self.room = whichRoom(self, user_choice)
+            self.room = utils.whichRoom(self, user_choice)
 
     def run(self):
         while not self.exit:
@@ -35,6 +37,6 @@ class Game:
                 break
             self.next_room()
 
-        scoreManager(self.hero)
+        utils.scoreManager(self.hero)
         print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["run"]["end_game"] % self.hero.score)
-        displayBestPlayers()
+        utils.displayBestPlayers()

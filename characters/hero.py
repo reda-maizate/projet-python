@@ -7,7 +7,7 @@ class Hero(Character):
         self.score = 0
         self.weapon = None
         self.pride = 0
-        gold = 80
+        gold = 0
         force = 10 + Dice(30).get_value()
         maxHealth = 100
         self.health = maxHealth

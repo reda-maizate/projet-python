@@ -1,4 +1,5 @@
 import json
+import os
 
 from characters.hero import Hero
 from dungeon.dungeon import Dungeon
@@ -45,7 +46,29 @@ def displayBestPlayers():
         print("\n".join(best))
 
 
-def loadDialogs():
+def loadDialogs(filename):
     global dialogs
-    with open("extraData/dialogs/fr_FR.json", "r", encoding="utf-8") as f:
+    with open(f"extraData/dialogs/{filename}", "r", encoding="utf-8") as f:
         dialogs = json.load(f)
+
+
+def menu():
+    global choice
+    print("---- BIENVENUE SUR DUNGEON CRAWLER ----")
+    choices = [i for i in os.listdir("extraData/dialogs") if i != "empty_keys.json"]
+    while True:
+        try:
+            print("0: Soft")
+            print("1: Hard")
+            user_choice = int(input("Quel version souhaitez-vous jouer ?\n"))
+            if user_choice < len(choices):
+                if user_choice == 0:
+                    choice = choices[0]
+                elif user_choice == 1:
+                    choice = choices[1]
+                print(sep="\n\n")
+                break
+        except ValueError:
+            print(f"Veuillez insérer une valeur entre 0 et {len(choices)}")
+
+    return choice
