@@ -1,16 +1,15 @@
 from enum import Enum
 
-
 class Exits(Enum):
     HOME = {
-        "text": "Retour au tieks",
+        "text": utils.dialogs["dungeon_crawler"]["classes"]["game"]["exit"]["home"],
         "index": 1
     }
     SHOP = {
-        "text": "Go faire les boutiques",
+        "text": utils.dialogs["dungeon_crawler"]["classes"]["game"]["exit"]["shop"],
         "index": 2
     }
     NEXT_ROOM = {
-        "text": "Plus loiiiiiiin dans le donjon",
+        "text": utils.dialogs["dungeon_crawler"]["classes"]["game"]["exit"]["next_room"],
         "index": 3
     }

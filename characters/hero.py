@@ -1,6 +1,6 @@
 from game.Dice import Dice
 from characters.character import Character
-
+import utils
 
 class Hero(Character):
     def __init__(self, name):
@@ -15,12 +15,12 @@ class Hero(Character):
         super().__init__(name, maxHealth, force, gold , armor)
 
     def sleep(self):
-        print("Un bon gros dodo wallah")
+        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["hero"]["sleep"])
         self.health = self.maxHealth
 
     def isDead(self):
         if self.health <= 0:
-            print("T'ES MOOOOOOOORTTT ! GAME OVER BATARD MTN VA TRAVAILLER!")
+            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["hero"]["death"])
             return True
         return False
 

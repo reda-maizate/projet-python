@@ -6,16 +6,50 @@
           "prompt" : "Quel est ton nom, jeune pucelle ?"
         },
         "next_room" : {
-          "welcome" : "Qu'est-ce-qu'on fait maintenant chef",
+          "welcome" : "Qu'est-ce-qu'on fait maintenant chef ?",
           "ask" : "Tu veux continuer ton périple ? [y]/n",
-          "incorrect_number" : "Jconnais pas l'option '%d'",
-          "incorrect_answer" : "Pourquoi tu m'embrouilles"
+          "incorrect_number" : "J'connais pas l'option '%d'",
+          "incorrect_answer" : "Pourquoi tu m'embrouilles ? Fais belek j'suis pas ton pote!",
+          "no_monster" : "Aucun monstre dans la salle mon reuf!\nCa sert à rien de taper dans le vide y'a pas de Jnoûn",
+          "name" : "Bah les blocks"
         },
         "run" : {
           "end_game" : "Fin de la partie , score : %d pts"
         },
         "display" : {
           "room_content" : "%d Monstre(s) présent(s): %s"
+        },
+        "combat" : {
+          "monster_dead": "La calotte de ces mort est dead ! Un de moins ;)"
+        },
+        "exit": {
+          "home": "Retour au tieks",
+          "shop": "Go faire les boutiques",
+          "next_room": "Plus loiiiiiiin dans le donjon"
+        },
+        "character": {
+          "defense_sup_attaque" : "Haaan %s vient de se manger une esquive tah Gogeta par %s!!\n %s ne prend pas de dégats",
+          "defense_equal_attaque" : "%s et %s sont surpuissants on peut pas les départager,\n on dirait un shonen\n",
+          "defense_inf_attaque" : "%s met une de ces bastos à %s, mashallah la puissance!\n",
+          "lose_hp" : "%s perd %d points de vie"
+        },
+        "hero" : {
+          "sleep" : "Un bon gros dodo wallah",
+          "death" : "T'ES MOOOOOOOORTTT ! GAME OVER BATARD MTN VA TRAVAILLER!"
+        },
+        "power" : {
+          "use_power" : "la puissaaaaance",
+          "cannot_use_power" : "Tu peux pas faire ça poto"
+        },
+        "dungeon" : {
+          "description" : "Antre sombre et menaçante\nIl y a une porte au fond de la salle"
+        },
+        "round" : {
+          "start" : "prepare toi petit pucelle ça va saigner",
+          "continue" : "prêt pour un autre round ? non c'était pas une question !",
+          "ask_action" : "Qu'est ce que t'attend choisi ton mouvement j'ai pas toute la journée :",
+          "attaquer" : "Attaquer ? c'était bien la peine de me faire attendre pour ça",
+          "defendre" : "Défendre ? Alors on a peur ? héhéhé..."
         }
       }
     }

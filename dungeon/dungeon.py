@@ -22,9 +22,9 @@ def init_power():
 def use_power():
     use_power.used += 1
     if use_power.used > 1:
-        print("Tu peux pas faire ça poto")
+        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["cannot_use_power"])
     else:
-        print("la puissaaaaance")
+        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["use_power"])
 
 
 class Dungeon(Room):
@@ -36,9 +36,9 @@ class Dungeon(Room):
         can_tp_home = random.random() <= 1 / 5
         if can_tp_home:
             exits.append(Exits.HOME)
-            exitDescription = "\nJvois une porte vers la maison au fond là bas"
-
-        super().__init__("Bas des blocs", "Antre sombre et menaçante" + exitDescription, commands, exits, [], hero)
+            exitDescription = utils.dialogs["dungeon_crawler"]["classes"]["game"]["dungeon"]["description"]
+            room_name = utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["name"]
+        super().__init__(room_name, exitDescription, commands, exits, [], hero)
         self.fillMonsters()
 
     def use(self):
@@ -51,16 +51,16 @@ class Dungeon(Room):
                 ", ".join([d.name for d in self.monsters])
             ))
             if rounds == 1:
-                text = "\nLe combat commence"
+                text = utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["start"]
             else:
-                text = "\nLe combat continue"
+                text = utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["continue"]
 
-            print(text)
-            print("Actions disponibles:")
+            print("\n" + text)
+            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["ask_action"])
             for cmd in self.commands:
                 print("\t-", cmd)
-            print("\t- attaquer")
-            print("\t- defendre")
+            print("\t- "+utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["attaquer"])
+            print("\t- "+utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["defendre"])
 
             attack_or_defense = input(self.hero)
 
@@ -78,8 +78,7 @@ class Dungeon(Room):
 
             print()
 
-        print("Aucun monstre dans la salle mon reuf!")
-        print("Ca sert à rien de taper dans le vide y'a pas de Jnoûn")
+        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["next_room"])
 
     def combat(self, humansFights=True):
         monstersRemaining = []
@@ -97,7 +96,7 @@ class Dungeon(Room):
             if monster.health <= 0:
                 self.hero.gold += monster.gold
                 self.hero.score += monster.maxHealth
-                print("Le monstre est mort !!!!!!!!!")
+                print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["combat"]["monster_dead"])
             elif self.hero.health <= 0:
                 break
             else:
