@@ -9,15 +9,50 @@
           "welcome" : "",
           "ask" : "",
           "incorrect_number" : "",
-          "incorrect_answer" : ""
+          "incorrect_answer" : "",
+          "no_monster" : "",
+          "name" : ""
         },
         "run" : {
           "end_game" : ""
         },
         "display" : {
           "room_content" : ""
+        },
+        "combat" : {
+          "monster_dead": ""
+        },
+        "exit": {
+          "home": "",
+          "shop": "",
+          "next_room": ""
+        },
+        "character": {
+          "defense_sup_attaque" : "",
+          "defense_equal_attaque" : "",
+          "defense_inf_attaque" : "",
+          "lose_hp" : ""
+        },
+        "hero" : {
+          "sleep" : "",
+          "death" : ""
+        },
+        "power" : {
+          "use_power" : "",
+          "cannot_use_power" : ""
+        },
+        "dungeon" : {
+          "description" : ""
+        },
+        "round" : {
+          "start" : "",
+          "continue" : "",
+          "ask_action" : "",
+          "attaquer" : "",
+          "defendre" : ""
         }
       }
     }
   }
 }
+

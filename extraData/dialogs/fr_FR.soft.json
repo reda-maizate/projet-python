@@ -42,7 +42,8 @@
           "cannot_use_power" : "puissance indisponible"
         },
         "dungeon" : {
-          "description" : "Antre sombre et menaçante\nIl y a une porte au fond de la salle"
+          "description" : "Antre sombre et menaçante\n",
+          "sortie": "Il y a une porte au fond de la salle"
         },
         "round" : {
           "start" : "Le combat commence",
@@ -50,6 +51,16 @@
           "ask_action" : "Actions disponibles:",
           "attaquer" : "attaquer",
           "defendre" : "defendre"
+        },
+        "shop" : {
+          "arme": "Améliorer votre épée",
+          "armure": "Améliorer votre armure",
+          "name": "Boutique",
+          "description": "Faites vos achats et déposez de l'argent",
+          "no_monnaie": "Diantre ! Vous ne possédez plus un sous !! ",
+          "stat_already_maxed": "Impossible d'améliorer, vous êtes déjà au max !",
+          "armure_lvl_up" : "Vous avez obtenu un +10 en Armure !",
+          "arme_lvl_up" : "Vous avez obtenu un +10 en Force !"
         }
       }
     }

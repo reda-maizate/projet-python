@@ -42,14 +42,25 @@
           "cannot_use_power" : "Tu peux pas faire ça poto"
         },
         "dungeon" : {
-          "description" : "Antre sombre et menaçante\nIl y a une porte au fond de la salle"
+          "description" : "Sur un fond de Lacrim, des wallah et des coups de feu.\n",
+          "sortie" : "Il y a une porte au fond de la salle"
         },
         "round" : {
           "start" : "prepare toi petit pucelle ça va saigner",
-          "continue" : "prêt pour un autre round ? non c'était pas une question !",
+          "continue" : "Prêt pour un autre round ? non c'était pas une question !",
           "ask_action" : "Qu'est ce que t'attend choisi ton mouvement j'ai pas toute la journée :",
           "attaquer" : "Attaquer ? c'était bien la peine de me faire attendre pour ça",
           "defendre" : "Défendre ? Alors on a peur ? héhéhé..."
+        },
+        "shop" : {
+          "arme": "faire plus mal",
+          "armure": "prendre moins cher",
+          "name": "Boutique",
+          "description": "Faites vos achats et déposez de l'argent",
+          "no_monnaie": "déso t'as pas une thune",
+          "stat_already_maxed": "Zehma tu forces chacal",
+          "armure_lvl_up" : "level up de l'armure",
+          "arme_lvl_up" : "level up de l'épée\nAttention la patate du Sheitan"
         }
       }
     }

@@ -1,4 +1,5 @@
 from game.Dice import Dice
+import Language
 
 
 class Character:
@@ -15,10 +16,10 @@ class Character:
         defenseRoll = Dice().get_value()
 
         if defenseRoll > attackRoll:
-            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["defense_sup_attaque"] % (self.name, other.name, other.name))
+            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["defense_sup_attaque"] % (self.name, other.name, other.name))
 
         elif attackRoll == defenseRoll:
-            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["defense_equal_attaque"] % (self.name , other.name))
+            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["defense_equal_attaque"] % (self.name , other.name))
             otherDammages = max(0, (self.force / 2) - (other.armor / 10))
             selfDammages = max(0, (other.force / 2) - (self.armor / 10))
             other.health -= otherDammages
@@ -26,11 +27,11 @@ class Character:
             displayLifePointsLost(self.name, selfDammages)
             displayLifePointsLost(other.name, otherDammages)
         else:
-            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["defense_inf_attaque"] % (self.name, other.name))
+            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["defense_inf_attaque"] % (self.name, other.name))
             otherDammages = max(0, self.force - (other.armor / 10))
             other.health -= otherDammages
             displayLifePointsLost(other.name, otherDammages)
 
 
 def displayLifePointsLost(characterHealth, pointsLost):
-    print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["lose_hp"] % (characterHealth, pointsLost))
+    print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["character"]["lose_hp"] % (characterHealth, pointsLost))

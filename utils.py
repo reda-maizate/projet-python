@@ -7,8 +7,6 @@ from dungeon.exits import Exits
 from dungeon.rooms.home import Home
 from dungeon.rooms.shop import Shop
 
-dialogs = {}
-
 
 def whichRoom(game, user_choice):
     enumRoom = game.room.exits[user_choice]
@@ -19,9 +17,6 @@ def whichRoom(game, user_choice):
         return Home(hero=game.hero)
     elif enumRoom == Exits.SHOP:
         return Shop(hero=game.hero)
-    else:
-        return None
-
 
 def scoreManager(hero: Hero):
     with open("extraData/scores.txt", "r+") as f:
@@ -46,21 +41,15 @@ def displayBestPlayers():
         print("\n".join(best))
 
 
-def loadDialogs(filename):
-    global dialogs
-    with open(f"extraData/dialogs/{filename}", "r", encoding="utf-8") as f:
-        dialogs = json.load(f)
-
-
 def menu():
     global choice
     print("---- BIENVENUE SUR DUNGEON CRAWLER ----")
     choices = [i for i in os.listdir("extraData/dialogs") if i != "empty_keys.json"]
     while True:
         try:
-            print("0: Soft")
-            print("1: Hard")
-            user_choice = int(input("Quel version souhaitez-vous jouer ?\n"))
+            print("0: Hard")
+            print("1: Soft")
+            user_choice = int(input("Quelle version souhaitez-vous jouer ?\n"))
             if user_choice < len(choices):
                 if user_choice == 0:
                     choice = choices[0]

@@ -24,15 +24,3 @@ class Dice:
         """
         self.__value = random.randint(1, self.nb_of_sides)
         return self.__value
-
-    def compare(self, other):
-        """
-        Compare the dice value of the hero and the monster
-        Parameters:
-        - hero_dice: dice value of the hero.
-        - monster_dice: dice value of the monster.
-
-        Return:
-        - 0 if the dice value of the hero is superior or equal to the monster, otherwise 1.
-        """
-        return 0 if self.__value >= other.value else 1

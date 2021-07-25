@@ -8,6 +8,7 @@ from game.Dice import Dice
 from dungeon.rooms.room import *
 
 import utils
+import Language
 
 
 def init_power():
@@ -22,22 +23,23 @@ def init_power():
 def use_power():
     use_power.used += 1
     if use_power.used > 1:
-        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["cannot_use_power"])
+        print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["cannot_use_power"])
     else:
-        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["use_power"])
+        print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["power"]["use_power"])
 
 
 class Dungeon(Room):
     def __init__(self, hero: Hero):
         exitDescription = ""
-        commands = {"superPower": use_power()}  # todo generate commands
+        commands = {"superPower": use_power()}
 
         exits = [Exits.NEXT_ROOM]
         can_tp_home = random.random() <= 1 / 5
         if can_tp_home:
             exits.append(Exits.HOME)
-            exitDescription = utils.dialogs["dungeon_crawler"]["classes"]["game"]["dungeon"]["description"]
-            room_name = utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["name"]
+            exitDescription = Language.dialogs["dungeon_crawler"]["classes"]["game"]["dungeon"]["sortie"]
+        exitDescription = Language.dialogs["dungeon_crawler"]["classes"]["game"]["dungeon"]["description"] + exitDescription
+        room_name = Language.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["name"]
         super().__init__(room_name, exitDescription, commands, exits, [], hero)
         self.fillMonsters()
 
@@ -46,21 +48,21 @@ class Dungeon(Room):
         while self.monsters:
             rounds += 1
             monsters_quantity = len(self.monsters)
-            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["display"]["room_content"] % (
+            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["display"]["room_content"] % (
                 monsters_quantity,
                 ", ".join([d.name for d in self.monsters])
             ))
             if rounds == 1:
-                text = utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["start"]
+                text = Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["start"]
             else:
-                text = utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["continue"]
+                text = Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["continue"]
 
             print("\n" + text)
-            print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["ask_action"])
+            print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["ask_action"])
             for cmd in self.commands:
                 print("\t-", cmd)
-            print("\t- "+utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["attaquer"])
-            print("\t- "+utils.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["defendre"])
+            print("\t- "+Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["attaquer"])
+            print("\t- "+Language.dialogs["dungeon_crawler"]["classes"]["game"]["round"]["defendre"])
 
             attack_or_defense = input(self.hero)
 
@@ -78,7 +80,7 @@ class Dungeon(Room):
 
             print()
 
-        print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["next_room"])
+        print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["next_room"]["no_monster"])
 
     def combat(self, humansFights=True):
         monstersRemaining = []
@@ -96,7 +98,7 @@ class Dungeon(Room):
             if monster.health <= 0:
                 self.hero.gold += monster.gold
                 self.hero.score += monster.maxHealth
-                print(utils.dialogs["dungeon_crawler"]["classes"]["game"]["combat"]["monster_dead"])
+                print(Language.dialogs["dungeon_crawler"]["classes"]["game"]["combat"]["monster_dead"])
             elif self.hero.health <= 0:
                 break
             else:
