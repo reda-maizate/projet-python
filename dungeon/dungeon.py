@@ -1,20 +1,34 @@
 import random
+from time import sleep
 
 from characters.hero import Hero
 from characters.monster import Monster
 from dungeon.exits import Exits
-from game.game_settings import Dice
+from game.Dice import Dice
 from dungeon.rooms.room import *
 
 
-def nothing():
-    print("test")
+def init_power():
+    def power_(func):
+        func.used = 0
+        return func
+
+    return power_
+
+
+@init_power()
+def use_power():
+    use_power.used += 1
+    if use_power.used > 1:
+        print("Tu peux pas faire ça poto")
+    else:
+        print("la puissaaaaance")
 
 
 class Dungeon(Room):
     def __init__(self, hero: Hero):
         exitDescription = ""
-        commands = {"what": nothing}  # todo generate commands
+        commands = {"superPower": use_power()}  # todo generate commands
 
         exits = [Exits.NEXT_ROOM]
         can_tp_home = random.random() <= 1 / 5
@@ -39,42 +53,52 @@ class Dungeon(Room):
             else:
                 text = "\nLe combat continue"
 
-            print(text , "tu préfères : \n\t-attaquer\n\t-defendre")
+            print(text)
+            print("Actions disponibles:")
+            for cmd in self.commands:
+                print("\t-", cmd)
+            print("\t- attaquer")
+            print("\t- defendre")
+
             attack_or_defense = input(self.hero)
 
             tmp_force = self.hero.force
             tmp_def = self.hero.armor
 
-            if attack_or_defense == "defense":
-                self.hero.force = 0
-                self.hero.armor = 80
-            self.combat()
+            humansFights = attack_or_defense == "attaquer"
+            if not humansFights:
+                self.hero.force, self.hero.armor = 0, 80
+
+            self.combat(humansFights=humansFights)
 
             self.hero.force = tmp_force
             self.hero.armor = tmp_def
 
             print()
 
-
         print("Aucun monstre dans la salle mon reuf!")
         print("Ca sert à rien de taper dans le vide y'a pas de Jnoûn")
 
-    def combat(self):
+    def combat(self, humansFights=True):
         monstersRemaining = []
         for monster in self.monsters:
             fightOrder = Dice(1).get_value()
             if fightOrder:
-                self.hero.fight(monster)
+                if humansFights:
+                    self.hero.fight(monster)
                 monster.fight(self.hero)
             else:
                 monster.fight(self.hero)
-                self.hero.fight(monster)
+                if humansFights:
+                    self.hero.fight(monster)
+
             if monster.health <= 0:
                 self.hero.gold += monster.gold
+                self.hero.score += monster.maxHealth
                 print("Le monstre est mort !!!!!!!!!")
             else:
                 monstersRemaining.append(monster)
-
+            sleep(2)
         self.monsters = monstersRemaining
 
     def fillMonsters(self):

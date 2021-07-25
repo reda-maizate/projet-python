@@ -7,7 +7,7 @@ class Exits(Enum):
         "index": 1
     }
     SHOP = {
-        "text": "Go à l'usine",
+        "text": "Go faire les boutiques",
         "index": 2
     }
     NEXT_ROOM = {

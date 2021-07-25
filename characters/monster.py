@@ -1,4 +1,4 @@
-from game.game_settings import Dice
+from game.Dice import Dice
 from characters.character import Character
 
 
